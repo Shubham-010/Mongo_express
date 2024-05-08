@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./models/products');
-mongoose.connect('mongodb://localhost:60724/testdb')
+mongoose.connect('mongodb://localhost:50667/testdb')
     .then(() => { console.log('connection established :>> ',); })
     .catch(() => { console.log('error in conneection :>> ',); })
 

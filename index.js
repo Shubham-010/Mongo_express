@@ -3,7 +3,7 @@ const app = express();
 const path =  require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/products');
-mongoose.connect('mongodb://localhost:60724/testdb')
+mongoose.connect('mongodb://localhost:50667/testdb')
 .then(()=>{console.log('connection established :>> ', );})
 .catch(()=>{console.log('error in conneection :>> ', );})
 
@@ -17,6 +17,15 @@ app.get('/products',async (req,res)=>{
    const products = await Product.find({})
     console.log(products,'products');
     res.render('products/index',{products});
+})
+
+app.get('/products/new',async(req,res)=>{
+    res.render('products/new',{})
+})
+
+app.post('/products',(req,res)=>{
+    console.log(req.body,"REQ");
+    res.send('making your products')
 })
 
 app.get('/products/:id',async(req,res)=>{
